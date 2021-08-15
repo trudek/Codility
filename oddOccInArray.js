@@ -1,20 +1,12 @@
 function solution(A) {
-  let array = A;
-  let unpaired = 0;
+  let array = [];
   for (let i = 0; i < A.length; i++) {
-    let number = array[i];
-    let count = 0;
-    for (let j = 0; j < A.length; j++) {
-      if (i != j) {
-        let compareNo = array[j];
-        if (number == compareNo) {
-          count++;
-        }
-      }
-    }
-    if (count % 2 == 0) {
-      unpaired = array[i];
+    if (array.includes(A[i])) {
+      array.splice(array.indexOf(A[i]), 1);
+    } else {
+      array.push(A[i]);
     }
   }
-  return unpaired;
+  let reapeted = array[0];
+  return reapeted;
 }
