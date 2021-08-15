@@ -1,12 +1,16 @@
 function solution(A) {
-  let array = [];
-  for (let i = 0; i < A.length; i++) {
-    if (array.includes(A[i])) {
-      array.splice(array.indexOf(A[i]), 1);
+  const sortedArray = A.sort();
+  let reapeted = 0;
+
+  for (let i = 0; i < sortedArray.length; i++) {
+    let thisNo = sortedArray[i];
+    let nextNo = sortedArray[i + 1];
+
+    if (thisNo === nextNo) {
+      i++;
     } else {
-      array.push(A[i]);
+      reapeted = thisNo;
     }
   }
-  let reapeted = array[0];
   return reapeted;
 }
